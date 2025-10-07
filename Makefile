@@ -30,4 +30,9 @@ clean:
 distclean: clean
 	${RM} config.mk
 
-.PHONY: all install clean distclean install_udev_rules
+uninstall:
+	rm -f ${BINDIR}/brightnessctl
+	rm -f ${MANDIR}/man1/brightnessctl.1
+	rm -f ${DESTDIR}${UDEVDIR}/90-brightnessctl.rules
+
+.PHONY: all install clean distclean install_udev_rules uninstall
